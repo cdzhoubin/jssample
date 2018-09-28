@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片剪裁旋转方法封装</title>
+<script type="text/javascript" src="excanvas.js"></script>
+<link type="text/css" href="rotation.css"  rel="stylesheet">
+</head>
+
+<body>
+<p><button id="cropBeginBtn">图片处理</button></p>
+<div>
+<img id="cropTestImg" src="./photo.jpg" />
+
+<div >
+	旋转：<input id="rotatevalue" type="text" value="0" style="width:38px; height:15px; border:1px solid #a0b3d6; font-size:100%; padding:2px 0 1px 2px; margin-right:3px; color:#333333;" />度
+<input type="button" onclick="return roteatefun();" value="开始"/>
+</div>
+</div>
+
+<div>
+	<img id="cropTestImg1" src="./image.png" />
+	
+	<div >
+		旋转：<input id="rotatevalue1" type="text" value="0" style="width:38px; height:15px; border:1px solid #a0b3d6; font-size:100%; padding:2px 0 1px 2px; margin-right:3px; color:#333333;" />度
+	<input type="button" onclick="return roteatefun1();" value="开始"/>
+	<input type="button" onclick="return showInfo();" value="信息"/>
+	</div>
+	</div>
+<script type="text/javascript" src="zxx.crop_rotation.js"></script>
+<script type="text/javascript">
+var obj,obj1;
+window.onload = function(){
+	var oImg = document.getElementById("cropTestImg");
+	var oImg1 = document.getElementById("cropTestImg");
+	document.getElementById("cropBeginBtn").onclick = function(){
+		obj = new ImageCropRot("cropTestImg",{enableTest:false,enableCut:true});
+		obj1 = new ImageCropRot("cropTestImg1",{enableTest:false,enableCut:false});
+	};
+};	
+	function roteatefun(){
+		//alert(1);
+		obj.rotate(document.getElementById("rotatevalue").value);
+		return false;
+	}
+	function roteatefun1(){
+		//alert(1);
+		obj1.rotate(document.getElementById("rotatevalue1").value);
+		return false;
+	}
+	function showInfo(){
+		alert(obj.info());
+		alert(obj1.info())
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Glass</title>
+    <style type="text/css">
+        .canvas {
+            display: block;
+            border: 1px solid red;
+            margin: 0 auto;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+
+<body>
+    <div><input type="button" onclick="obj.start();" value="开始" /> <input type="button" onclick="obj.stop();" value="停止" /></div>
+    
+    <div style="padding-left:200px">
+        <img src="image.png" id="img">
+    </div>
+    <br />
+    <div><input type="button" onclick="obj1.start();" value="开始" /> <input type="button" onclick="obj1.stop();" value="停止" /></div>
+    <div style="padding-left:200px">
+        <img src="photo.jpg" id="img1">
+    </div>
+    
+    <script type="text/javascript" src="./zoom.js"></script>
+    <script type="text/javascript">
+        var obj,obj1;
+        window.onload = function () {
+            obj = imgageZoom("img");
+            obj1 = imgageZoom("img1",{width:512,height:308});
+            //obj.start();
+        }
+    </script>
+</body>
+
+</html>
